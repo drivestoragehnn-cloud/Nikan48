@@ -1,0 +1,57 @@
+body {
+    background-color: #1a1a2e;
+    color: #e0e0e0;
+    font-family: 'Vazirmatn', sans-serif; /* میتونی از هر فونت فارسی که دوست داری استفاده کنی */
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #16213e;
+    padding: 20px;
+    border-bottom: 3px solid #0f3460;
+}
+
+header h1 {
+    color: #e94560;
+}
+
+main {
+    padding: 20px;
+}
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px; /* فاصله بین کارت ها */
+}
+
+.anime-card {
+    background-color: #16213e;
+    border-radius: 15px;
+    width: 250px;
+    padding: 15px;
+    box-shadow: 0 0 15px rgba(233, 69, 96, 0.5);
+    transition: transform 0.3s;
+}
+
+.anime-card:hover {
+    transform: scale(1.05); /* یکم بزرگتر میشه وقتی موس میره روش */
+}
+
+.anime-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.anime-card h3 {
+    color: #e94560;
+}
+
+footer {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #0f3460;
+}
