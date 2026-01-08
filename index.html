@@ -3,36 +3,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> دنیای انیمه نیکن 🎌</title>
-    <link rel="stylesheet" href="style.css">
+    <title>⚡ دنیای انیمه نیکن | Nikan's World ⚡</title>
+    <style>
+        /* --- استایل‌های کلی و خفن --- */
+        @import url('https://fonts.googleapis.com/css2?family=Lalezar&family=Vazirmatn:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #00f2ff; /* آبی نئونی */
+            --secondary-color: #ff0055; /* صورتی نئونی */
+            --bg-color: #050510; /* سیاه فضایی */
+            --card-bg: #101025;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: white;
+            font-family: 'Vazirmatn', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 242, 255, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 0, 85, 0.1) 0%, transparent 20%);
+        }
+
+        /* --- انیمیشن‌های باحال --- */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color); }
+            to { text-shadow: 0 0 20px var(--primary-color), 0 0 30px var(--primary-color); }
+        }
+
+        /* --- هدر سایت --- */
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, transparent 100%);
+            animation: fadeInDown 1.5s ease-out;
+        }
+
+        h1 {
+            font-family: 'Lalezar', cursive;
+            font-size: 3.5rem;
+            margin: 0;
+            background: -webkit-linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 2s infinite alternate;
+        }
+
+        p.subtitle {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-top: 10px;
+            letter-spacing: 2px;
+        }
+
+        /* --- بخش اصلی --- */
+        main {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2.section-title {
+            text-align: center;
+            font-family: 'Lalezar', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: var(--secondary-color);
+            text-shadow: 0 0 10px rgba(255, 0, 85, 0.5);
+            border-bottom: 2px solid var(--secondary-color);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .center-title {
+            text-align: center;
+        }
+
+        /* --- گالری کارت‌ها --- */
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .anime-card {
+            background-color: var(--card-bg);
+            border: 2px solid transparent;
+            border-radius: 20px;
+            width: 300px;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* تاخیر برای انیمیشن شناور هر کارت */
+        .anime-card:nth-child(1) { animation-delay: 0s; }
+        .anime-card:nth-child(2) { animation-delay: 1s; }
+        .anime-card:nth-child(3) { animation-delay: 2s; }
+
+        .anime-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            border-color: var(--primary-color);
+            box-shadow: 0 0 30px rgba(0, 242, 255, 0.4);
+            z-index: 10;
+        }
+
+        .anime-card img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .anime-card:hover img {
+            transform: scale(1.1);
+            filter: brightness(1.2);
+        }
+
+        .card-info {
+            padding: 20px;
+            text-align: center;
+            background: linear-gradient(0deg, var(--card-bg) 0%, rgba(16,16,37,0.8) 100%);
+        }
+
+        .card-info h3 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: white;
+            font-family: 'Lalezar', cursive;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 5px 10px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            margin-top: 10px;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+
+        /* --- دکمه پنل مدیریت (نمایشی) --- */
+        .admin-link {
+            display: block;
+            width: 200px;
+            margin: 50px auto;
+            text-align: center;
+            padding: 15px;
+            background: linear-gradient(90deg, var(--secondary-color), #ff5e00);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 50px;
+            box-shadow: 0 0 20px rgba(255, 0, 85, 0.4);
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .admin-link:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 40px rgba(255, 0, 85, 0.8);
+        }
+
+        .admin-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: 0.5s;
+        }
+
+        .admin-link:hover::before {
+            left: 100%;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: black;
+            color: #555;
+            margin-top: 50px;
+        }
+
+    </style>
 </head>
 <body>
 
     <header>
-        <h1>به دنیای انیمه من خوش اومدی! ✨</h1>
-        <p>اینجا جایی برای بهترین انیمه‌هایی هست که دیدم.</p>
+        <h1>⚡ دنیای انیمه نیکن ⚡</h1>
+        <p class="subtitle">بهترین انیمه‌هایی که دیدم | آپدیت ۲۰۲۶</p>
     </header>
 
     <main>
-        <h2>گالری انیمه‌های مورد علاقه من</h2>
+        <div class="center-title">
+            <h2 class="section-title">✨ لیست برترین‌ها ✨</h2>
+        </div>
+
         <div class="gallery">
+            <!-- کارت انیمه ۱: Solo Leveling -->
             <div class="anime-card">
-                <img src="https://m.media-amazon.com/images/M/MV5BODcwNWE3OTMtMDc3MS00NDFjLWE1OTAtNDU3NjgxODMxY2UyXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg" alt="عکس انیمه جوجوتسو کایسن">
-                <h3>جوجوتسو کایسن</h3>
+                <img src="https://m.media-amazon.com/images/M/MV5BMmMxN2Y1YzQtNDk1My00YTI2LWE2MzgtMjdmYTNhOGY0YzQ2XkEyXkFqcGdeQXVyMTEzMTI1Mjk3._V1_.jpg" alt="Solo Leveling">
+                <div class="card-info">
+                    <h3>سولو لولینگ</h3>
+                    <span class="tag">اکشن</span> <span class="tag">جادویی</span>
+                    <p>وقتی ضعیف‌ترین شکارچی جهان، یهو قدرتمندترین میشه!</p>
+                </div>
             </div>
+
+            <!-- کارت انیمه ۲: Spy x Family -->
             <div class="anime-card">
-                <img src="https://m.media-amazon.com/images/M/MV5BZmQ5NGFiNWEtMmMyMC00MDdiLTg4YjktOGY5Yzc2MDUxMTE1XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_FMjpg_UX1000_.jpg" alt="عکس انیمه حمله به تایتان">
-                <h3>حمله به تایتان</h3>
+                <img src="https://m.media-amazon.com/images/M/MV5BZmRjODgyMjEtZDU4ZC00Y2Q2LWI1ZDQtZTVhMWM5ZDM5M2M4XkEyXkFqcGdeQXVyMTEzMTI1Mjk3._V1_.jpg" alt="Spy x Family">
+                <div class="card-info">
+                    <h3>خانواده جاسوس</h3>
+                    <span class="tag">کمدی</span> <span class="tag">خانوادگی</span>
+                    <p>یه جاسوس، یه قاتل و یه بچه ذهن‌خوان که یه خانواده الکی تشکیل میدن!</p>
+                </div>
             </div>
+
+            <!-- کارت انیمه ۳: Buddy Daddies -->
             <div class="anime-card">
-                <img src="https://m.media-amazon.com/images/M/MV5BY2I2MzI1ODYtMWRlOS00MzdhLWEyOWEtYWJhNmYwZTQzYjk1XkEyXkFqcGdeQXVyMTI2NTY3NDg5._V1_FMjpg_UX1000_.jpg" alt="عکس انیمه شیطان کش">
-                <h3>شیطان کش</h3>
+                <img src="https://m.media-amazon.com/images/M/MV5BMjA5ZTUwYjYtYWI2OS00MzQ2LWEyNzgtYzIwYWMzNzA3ZDQ4XkEyXkFqcGdeQXVyMTEzMTI1Mjk3._V1_.jpg" alt="Buddy Daddies">
+                <!-- نکته: چون لینک مستقیم عکس‌ها ممکنه فیلتر باشه، اگه عکس نیومد باید لینک جدید جایگزین کنی -->
+                <div class="card-info">
+                    <h3>بادی ددیز</h3>
+                    <span class="tag">اکشن</span> <span class="tag">بامزه</span>
+                    <p>دوتا قاتل حرفه‌ای که مجبور میشن از یه دختر کوچولو مراقبت کنن.</p>
+                </div>
             </div>
         </div>
+
+        <!-- دکمه ورود به پنل مدیریت (هدایت به گیت‌هاب) -->
+        <a href="https://github.com/drivestoragehnn_cloud/Nikan48/edit/main/index.html" class="admin-link" target="_blank">
+            🛠️ ورود به پنل مدیریت
+        </a>
+        <p style="text-align: center; color: #666; font-size: 0.8rem;">(برای تغییر سایت، روی دکمه بالا کلیک کن و کدها رو ویرایش کن)</p>
+
     </main>
 
     <footer>
-        <p>ساخته شده با ❤️ توسط نیکن</p>
+        <p>Copyright © 2026 Nikan Anime World</p>
     </footer>
 
 </body>
