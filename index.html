@@ -6,34 +6,34 @@
     <title>وب‌سایت رسمی نیکان | Nikan's Official Site</title>
     <link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Vazirmatn:wght@300;500;800&display=swap" rel="stylesheet">
     <style>
-        /* --- تنظیمات اصلی و ریست کردن --- */
+        /* --- تنظیمات اصلی --- */
         * {
             box-sizing: border-box;
             outline: none;
         }
 
         html {
-            scroll-behavior: smooth; /* اسکرول نرم */
+            scroll-behavior: smooth;
         }
 
         body {
             margin: 0;
             padding: 0;
-            background-color: #0f0f12; /* پس‌زمینه تیره و سنگین */
+            background-color: #0f0f12;
             color: #ffffff;
             font-family: 'Vazirmatn', sans-serif;
             line-height: 1.6;
         }
 
-        /* --- نوار پیمایش (Navigation Bar) --- */
+        /* --- نوار پیمایش --- */
         nav {
-            background-color: rgba(20, 20, 30, 0.95);
+            background-color: rgba(15, 15, 18, 0.95);
             padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 2px solid #333;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            border-bottom: 1px solid #333;
+            backdrop-filter: blur(10px);
         }
 
         .nav-container {
@@ -47,17 +47,17 @@
 
         .logo {
             font-family: 'Lalezar', cursive;
-            font-size: 1.8rem;
-            color: #fff;
+            font-size: 2rem;
             background: linear-gradient(90deg, #00c6ff, #0072ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            cursor: default;
         }
 
         .nav-links {
             list-style: none;
             display: flex;
-            gap: 30px;
+            gap: 25px;
             margin: 0;
             padding: 0;
         }
@@ -72,34 +72,34 @@
 
         .nav-links a:hover {
             color: #00c6ff;
-            text-shadow: 0 0 10px rgba(0, 198, 255, 0.5);
         }
 
-        /* --- بخش هدر اصلی (Hero Section) --- */
+        /* --- هدر اصلی --- */
         header {
             text-align: center;
-            padding: 100px 20px;
+            padding: 120px 20px 80px;
             background: radial-gradient(circle at center, #1a1a2e 0%, #0f0f12 70%);
         }
 
         header h1 {
             font-family: 'Lalezar', cursive;
-            font-size: 4rem;
+            font-size: 4.5rem;
             margin: 0;
             letter-spacing: 2px;
+            text-shadow: 0 0 20px rgba(0, 198, 255, 0.3);
         }
 
         header p {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: #888;
             margin-top: 10px;
         }
 
-        /* --- کانتینر اصلی محتوا --- */
+        /* --- کانتینر محتوا --- */
         .container {
             max-width: 1000px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 0 20px 80px;
         }
 
         .section-title {
@@ -111,19 +111,19 @@
             display: inline-block;
         }
 
-        /* --- استایل کارت‌های انیمه (بدون عکس) --- */
+        /* --- استایل کارت‌های انیمه --- */
         .anime-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
         }
 
         .anime-card {
             background: #161620;
-            border-radius: 15px;
+            border-radius: 18px;
             padding: 30px;
             border: 1px solid #333;
-            transition: transform 0.3s, border-color 0.3s;
+            transition: 0.3s;
             position: relative;
             overflow: hidden;
         }
@@ -137,9 +137,9 @@
         }
 
         .anime-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
             border-color: var(--accent-color);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
         }
 
         .anime-card h3 {
@@ -150,72 +150,111 @@
 
         .anime-card p {
             color: #aaa;
-            font-size: 0.95rem;
-            margin-bottom: 20px;
+            font-size: 1rem;
+            margin-bottom: 25px;
         }
 
         .tags span {
-            font-size: 0.8rem;
-            background: rgba(255,255,255,0.1);
-            padding: 5px 10px;
-            border-radius: 5px;
+            font-size: 0.85rem;
+            background: rgba(255,255,255,0.08);
+            padding: 6px 12px;
+            border-radius: 8px;
             margin-left: 5px;
             color: #fff;
         }
 
         /* --- بخش ماینکرفت --- */
         #minecraft {
-            margin-top: 100px;
+            margin-top: 120px;
             padding-top: 20px;
         }
 
         .mc-box {
             background-color: #121212;
-            border: 2px solid #2d2d2d;
-            border-radius: 20px;
-            padding: 40px;
+            border: 2px solid #333;
+            border-radius: 25px;
+            padding: 50px 30px;
             text-align: center;
-            background-image: linear-gradient(45deg, #121212 25%, #151515 25%, #151515 50%, #121212 50%, #121212 75%, #151515 75%, #151515 100%);
-            background-size: 20px 20px;
+            background-image: 
+                linear-gradient(45deg, #181818 25%, transparent 25%, transparent 75%, #181818 75%, #181818), 
+                linear-gradient(45deg, #181818 25%, transparent 25%, transparent 75%, #181818 75%, #181818);
+            background-position: 0 0, 15px 15px;
+            background-size: 30px 30px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .mc-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            object-fit: contain; /* مطمئن میشه عکس دفرمه نشه */
+            background-color: #222; /* پس زمینه برای وقتی عکس لود نشه */
+            padding: 10px;
+            border: 2px dashed #55ff55;
         }
 
         .mc-title-green {
-            color: #55ff55; /* سبز ماینکرفتی */
-            text-shadow: 2px 2px #000;
+            color: #55ff55;
+            text-shadow: 0 0 15px rgba(85, 255, 85, 0.4);
+            font-size: 2rem;
+            margin: 10px 0;
+        }
+
+        .server-container {
+            background: #000;
+            border: 2px dashed #555;
+            border-radius: 12px;
+            padding: 15px 25px;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            margin: 25px 0;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .server-address {
-            background: #000;
             color: #55ff55;
             font-family: monospace;
-            font-size: 1.5rem;
-            padding: 20px;
-            border-radius: 10px;
-            border: 2px dashed #555;
-            display: inline-block;
-            margin: 20px 0;
-            direction: ltr; /* چپ چین برای متن انگلیسی */
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+            direction: ltr;
         }
 
-        .mc-desc {
-            color: #ddd;
-            font-size: 1.1rem;
+        .copy-btn {
+            background: #55ff55;
+            color: #000;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-family: 'Vazirmatn', sans-serif;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: #fff;
+        }
+
+        .copy-btn:active {
+            transform: scale(0.95);
         }
 
         /* --- فوتر --- */
         footer {
             text-align: center;
             padding: 40px;
-            margin-top: 80px;
             border-top: 1px solid #222;
-            color: #555;
+            color: #666;
+            font-size: 0.9rem;
         }
-
     </style>
 </head>
 <body>
 
-    <!-- نوار ناوبری (هدر ثابت) -->
+    <!-- نوار ناوبری -->
     <nav>
         <div class="nav-container">
             <div class="logo">NIKAN</div>
@@ -227,7 +266,7 @@
         </div>
     </nav>
 
-    <!-- بخش اصلی -->
+    <!-- هدر -->
     <header id="home">
         <h1>وب‌سایت شخصی نیکان</h1>
         <p>برنامه‌نویس | گیمر | اوتاکو</p>
@@ -235,12 +274,11 @@
 
     <div class="container">
         
-        <!-- بخش انیمه‌ها -->
+        <!-- انیمه‌ها -->
         <section id="anime">
             <h2 class="section-title" style="border-color: #ff0055;">لیست انیمه‌های من</h2>
             
             <div class="anime-grid">
-                <!-- کارت ۱ -->
                 <div class="anime-card" style="--accent-color: #3f51b5;">
                     <h3>Solo Leveling</h3>
                     <p>داستان جین‌وو که از ضعیف‌ترین شکارچی به پادشاه سایه‌ها تبدیل میشه.</p>
@@ -250,7 +288,6 @@
                     </div>
                 </div>
 
-                <!-- کارت ۲ -->
                 <div class="anime-card" style="--accent-color: #00b894;">
                     <h3>Spy x Family</h3>
                     <p>ماجراهای بامزه آنیا، لوید و یور. یک خانواده عجیب ولی دوست‌داشتنی!</p>
@@ -260,7 +297,6 @@
                     </div>
                 </div>
 
-                <!-- کارت ۳ -->
                 <div class="anime-card" style="--accent-color: #fdcb6e;">
                     <h3>Buddy Daddies</h3>
                     <p>دو تا قاتل حرفه‌ای که مجبور میشن بچه‌داری کنن. خیلی خنده‌داره.</p>
@@ -272,27 +308,44 @@
             </div>
         </section>
 
-        <!-- بخش ماینکرفت -->
+        <!-- ماینکرفت -->
         <section id="minecraft">
             <h2 class="section-title" style="border-color: #55ff55;">دنیای ماینکرفت</h2>
             
             <div class="mc-box">
-                <h3 class="mc-title-green">🎮 سرور فعلی من</h3>
-                <p class="mc-desc">من بیشتر وقتم رو توی این سرور پلی میدم. اگه دوست داشتی بیا!</p>
+                <!-- لوگوی سرور (فایل e.png باید در کنار index.html باشد) -->
+                <img src="e.png" alt="Eternal Server Logo" class="mc-logo">
                 
-                <div class="server-address">
-                    Eternal (Donut Irani)
+                <h3 class="mc-title-green">🎮 سرور اترنال (Eternal)</h3>
+                <p style="color: #ccc;">من بیشتر وقتم رو توی بخش دونات ایرانی این سرور پلی میدم.</p>
+                
+                <div class="server-container">
+                    <div class="server-address" id="serverIp">Play.EternalMC.ir</div>
+                    <button class="copy-btn" onclick="copyIp()">کپی آی‌پی</button>
                 </div>
                 
-                <p style="color: #888; font-size: 0.9rem;">(سرور اترنال - بخش دونات ایرانی)</p>
+                <p id="copyMsg" style="color: #55ff55; font-size: 0.8rem; opacity: 0; transition: 0.3s;">آی‌پی کپی شد!</p>
             </div>
         </section>
 
     </div>
 
     <footer>
-        <p>طراحی شده توسط نیکان © 2026</p>
+        <p>طراحی شده با ❤️ توسط نیکان © 2026</p>
     </footer>
+
+    <script>
+        function copyIp() {
+            var ipText = document.getElementById("serverIp").innerText;
+            navigator.clipboard.writeText(ipText).then(function() {
+                var msg = document.getElementById("copyMsg");
+                msg.style.opacity = "1";
+                setTimeout(function(){ msg.style.opacity = "0"; }, 2000);
+            }, function(err) {
+                console.error('Could not copy text: ', err);
+            });
+        }
+    </script>
 
 </body>
 </html>
