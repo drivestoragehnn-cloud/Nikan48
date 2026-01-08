@@ -57,7 +57,7 @@
         .nav-links {
             list-style: none;
             display: flex;
-            gap: 25px;
+            gap: 20px;
             margin: 0;
             padding: 0;
         }
@@ -67,7 +67,7 @@
             text-decoration: none;
             font-weight: 500;
             transition: 0.3s;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
         .nav-links a:hover {
@@ -109,16 +109,17 @@
             border-right: 5px solid #00c6ff;
             padding-right: 15px;
             display: inline-block;
+            margin-top: 60px;
         }
 
-        /* --- استایل کارت‌های انیمه --- */
-        .anime-grid {
+        /* --- استایل کارت‌های عمومی (انیمه و AI) --- */
+        .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
         }
 
-        .anime-card {
+        .card {
             background: #161620;
             border-radius: 18px;
             padding: 30px;
@@ -128,7 +129,7 @@
             overflow: hidden;
         }
 
-        .anime-card::before {
+        .card::before {
             content: '';
             position: absolute;
             top: 0; right: 0; left: 0;
@@ -136,19 +137,19 @@
             background: var(--accent-color, #fff);
         }
 
-        .anime-card:hover {
+        .card:hover {
             transform: translateY(-8px);
             border-color: var(--accent-color);
             box-shadow: 0 10px 40px rgba(0,0,0,0.4);
         }
 
-        .anime-card h3 {
+        .card h3 {
             margin: 0 0 10px 0;
             font-size: 1.8rem;
             font-family: 'Lalezar', cursive;
         }
 
-        .anime-card p {
+        .card p {
             color: #aaa;
             font-size: 1rem;
             margin-bottom: 25px;
@@ -163,53 +164,68 @@
             color: #fff;
         }
 
+        /* --- استایل مخصوص هوش مصنوعی --- */
+        .ai-title {
+            background: -webkit-linear-gradient(45deg, #a18cd1, #fbc2eb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
         /* --- بخش ماینکرفت --- */
-        #minecraft {
-            margin-top: 120px;
-            padding-top: 20px;
+        .mc-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
         }
 
         .mc-box {
             background-color: #121212;
             border: 2px solid #333;
             border-radius: 25px;
-            padding: 50px 30px;
+            padding: 40px;
             text-align: center;
             background-image: 
                 linear-gradient(45deg, #181818 25%, transparent 25%, transparent 75%, #181818 75%, #181818), 
                 linear-gradient(45deg, #181818 25%, transparent 25%, transparent 75%, #181818 75%, #181818);
             background-position: 0 0, 15px 15px;
             background-size: 30px 30px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mc-box:hover {
+            border-color: #55ff55;
         }
 
         .mc-logo {
-            width: 120px;
-            height: 120px;
-            border-radius: 20px;
-            margin-bottom: 20px;
-            object-fit: contain; /* مطمئن میشه عکس دفرمه نشه */
-            background-color: #222; /* پس زمینه برای وقتی عکس لود نشه */
+            width: 100px;
+            height: 100px;
+            border-radius: 15px;
+            object-fit: contain;
+            background-color: #222;
             padding: 10px;
             border: 2px dashed #55ff55;
+            margin-bottom: 15px;
         }
 
         .mc-title-green {
             color: #55ff55;
-            text-shadow: 0 0 15px rgba(85, 255, 85, 0.4);
-            font-size: 2rem;
-            margin: 10px 0;
+            text-shadow: 0 0 10px rgba(85, 255, 85, 0.3);
+            font-size: 1.8rem;
+            margin: 5px 0;
+            font-family: 'Lalezar', cursive;
         }
 
         .server-container {
             background: #000;
             border: 2px dashed #555;
             border-radius: 12px;
-            padding: 15px 25px;
+            padding: 10px 20px;
             display: inline-flex;
             align-items: center;
             gap: 15px;
-            margin: 25px 0;
+            margin: 20px 0;
             flex-wrap: wrap;
             justify-content: center;
         }
@@ -217,7 +233,7 @@
         .server-address {
             color: #55ff55;
             font-family: monospace;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             letter-spacing: 1px;
             direction: ltr;
         }
@@ -234,12 +250,15 @@
             transition: 0.2s;
         }
 
-        .copy-btn:hover {
-            background: #fff;
-        }
+        .copy-btn:hover { background: #fff; }
+        .copy-btn:active { transform: scale(0.95); }
 
-        .copy-btn:active {
-            transform: scale(0.95);
+        .copy-msg {
+            color: #55ff55;
+            font-size: 0.8rem;
+            opacity: 0;
+            transition: 0.3s;
+            height: 20px;
         }
 
         /* --- فوتر --- */
@@ -261,6 +280,7 @@
             <ul class="nav-links">
                 <li><a href="#home">خانه</a></li>
                 <li><a href="#anime">انیمه‌ها</a></li>
+                <li><a href="#ai">هوش مصنوعی</a></li>
                 <li><a href="#minecraft">ماینکرفت</a></li>
             </ul>
         </div>
@@ -278,8 +298,8 @@
         <section id="anime">
             <h2 class="section-title" style="border-color: #ff0055;">لیست انیمه‌های من</h2>
             
-            <div class="anime-grid">
-                <div class="anime-card" style="--accent-color: #3f51b5;">
+            <div class="grid-container">
+                <div class="card" style="--accent-color: #3f51b5;">
                     <h3>Solo Leveling</h3>
                     <p>داستان جین‌وو که از ضعیف‌ترین شکارچی به پادشاه سایه‌ها تبدیل میشه.</p>
                     <div class="tags">
@@ -288,7 +308,7 @@
                     </div>
                 </div>
 
-                <div class="anime-card" style="--accent-color: #00b894;">
+                <div class="card" style="--accent-color: #00b894;">
                     <h3>Spy x Family</h3>
                     <p>ماجراهای بامزه آنیا، لوید و یور. یک خانواده عجیب ولی دوست‌داشتنی!</p>
                     <div class="tags">
@@ -297,7 +317,7 @@
                     </div>
                 </div>
 
-                <div class="anime-card" style="--accent-color: #fdcb6e;">
+                <div class="card" style="--accent-color: #fdcb6e;">
                     <h3>Buddy Daddies</h3>
                     <p>دو تا قاتل حرفه‌ای که مجبور میشن بچه‌داری کنن. خیلی خنده‌داره.</p>
                     <div class="tags">
@@ -308,23 +328,73 @@
             </div>
         </section>
 
+        <!-- هوش مصنوعی -->
+        <section id="ai">
+            <h2 class="section-title" style="border-color: #9b59b6;">ابزارهای هوش مصنوعی من</h2>
+            
+            <div class="grid-container">
+                <!-- Gemini -->
+                <div class="card" style="--accent-color: #4facfe;">
+                    <h3 class="ai-title">Gemini</h3>
+                    <p>دستیار هوشمند و قدرتمند گوگل که توی کدنویسی و سوالاتم بهم کمک میکنه.</p>
+                    <div class="tags">
+                        <span style="color: #4facfe;">چت‌بات</span>
+                        <span style="color: #4facfe;">دستیار</span>
+                    </div>
+                </div>
+
+                <!-- Veo 3.1 -->
+                <div class="card" style="--accent-color: #f093fb;">
+                    <h3 class="ai-title">Veo 3.1</h3>
+                    <p>یه مدل خفن برای ساخت ویدیوهای باکیفیت که کارهای خارق‌العاده میکنه.</p>
+                    <div class="tags">
+                        <span style="color: #f093fb;">ویدیو</span>
+                        <span style="color: #f093fb;">خلاقیت</span>
+                    </div>
+                </div>
+
+                <!-- Wink -->
+                <div class="card" style="--accent-color: #ff9a9e;">
+                    <h3 class="ai-title">Wink</h3>
+                    <p>ابزار ویرایش عکس و ویدیو که با هوش مصنوعی کیفیت رو بالا میبره.</p>
+                    <div class="tags">
+                        <span style="color: #ff9a9e;">ادیتور</span>
+                        <span style="color: #ff9a9e;">عکس</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ماینکرفت -->
         <section id="minecraft">
             <h2 class="section-title" style="border-color: #55ff55;">دنیای ماینکرفت</h2>
             
-            <div class="mc-box">
-                <!-- لوگوی سرور (فایل e.png باید در کنار index.html باشد) -->
-                <img src="e.png" alt="Eternal Server Logo" class="mc-logo">
-                
-                <h3 class="mc-title-green">🎮 سرور اترنال (Eternal)</h3>
-                <p style="color: #ccc;">من بیشتر وقتم رو توی بخش دونات ایرانی این سرور پلی میدم.</p>
-                
-                <div class="server-container">
-                    <div class="server-address" id="serverIp">Play.EternalMC.ir</div>
-                    <button class="copy-btn" onclick="copyIp()">کپی آی‌پی</button>
+            <div class="mc-container">
+                <!-- سرور 1: Eternal -->
+                <div class="mc-box">
+                    <img src="e.png" alt="Eternal Logo" class="mc-logo">
+                    <h3 class="mc-title-green">🎮 سرور اترنال (Eternal)</h3>
+                    <p style="color: #ccc;">بخش دونات ایرانی | یه جای عالی برای سروایول</p>
+                    
+                    <div class="server-container">
+                        <div class="server-address" id="ip1">Play.EternalMC.ir</div>
+                        <button class="copy-btn" onclick="copyIp('ip1', 'msg1')">کپی آی‌پی</button>
+                    </div>
+                    <div id="msg1" class="copy-msg">آی‌پی کپی شد! ✅</div>
                 </div>
-                
-                <p id="copyMsg" style="color: #55ff55; font-size: 0.8rem; opacity: 0; transition: 0.3s;">آی‌پی کپی شد!</p>
+
+                <!-- سرور 2: GunMax -->
+                <div class="mc-box">
+                    <img src="g.png" alt="GunMax Logo" class="mc-logo">
+                    <h3 class="mc-title-green">⚔️ سرور گان‌مکس (GunMax)</h3>
+                    <p style="color: #ccc;">بخش اسکای ماین | چالش در آسمان</p>
+                    
+                    <div class="server-container">
+                        <div class="server-address" id="ip2">PLAY.GUNMAX.ORG</div>
+                        <button class="copy-btn" onclick="copyIp('ip2', 'msg2')">کپی آی‌پی</button>
+                    </div>
+                    <div id="msg2" class="copy-msg">آی‌پی کپی شد! ✅</div>
+                </div>
             </div>
         </section>
 
@@ -335,10 +405,10 @@
     </footer>
 
     <script>
-        function copyIp() {
-            var ipText = document.getElementById("serverIp").innerText;
+        function copyIp(elementId, msgId) {
+            var ipText = document.getElementById(elementId).innerText;
             navigator.clipboard.writeText(ipText).then(function() {
-                var msg = document.getElementById("copyMsg");
+                var msg = document.getElementById(msgId);
                 msg.style.opacity = "1";
                 setTimeout(function(){ msg.style.opacity = "0"; }, 2000);
             }, function(err) {
